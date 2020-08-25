@@ -15,10 +15,16 @@ if(isset($_POST["btnOK"]))
     if(trim($_POST["txtget"])!="")
     {
     $get = $_POST["txtget"];
+    $total =$get+$mon;
         $sql2 =<<< get
-        update mem set money = ($mon+$get) where muse = '$account'
+        update mem set money = $total where muse = '$account'
         get;
         mysqli_query($link,$sql2);
+        $sql3 = <<<push
+        insert into moneylist(`memberId`,`change`,`date`) values
+        ((select memberId from mem where muse = '$account'),'+$get',current_timestamp());       
+        push;
+        mysqli_query($link,$sql3);
         header("Location: push.php");
     }
 }

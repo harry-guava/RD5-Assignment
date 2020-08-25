@@ -13,6 +13,7 @@ if(isset($_POST["btninquired"]))
     $mon = $nowmon["money"];
     echo "餘額剩餘:$mon";
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
