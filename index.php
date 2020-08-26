@@ -14,8 +14,10 @@ if (isset($_POST["btnlogin"]))
         compare;
         $result = mysqli_query($link,$sql);
         //var_dump($result);
+        $rowname = mysqli_fetch_assoc($result);
+        $_SESSION["name"] = $rowname["username"];
         $rownum =mysqli_num_rows($result);
-        //echo $rownum;
+        echo $rownum;
         if($rownum!=0)
         {
           header("location: memuse.php");
@@ -39,6 +41,7 @@ if(isset($_POST["btnreg"]))
 {
   header("location: add.php");
 }
+header("Cache-control: private");
 ?>
 <html>
 <head>

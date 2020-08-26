@@ -15,17 +15,21 @@ if(isset($_POST["btnOK"]))
     if(trim($_POST["txtget"])!="")
     {
     $get = $_POST["txtget"];
-       if($mon>$get)
+       if($mon>=$get)
        {
+        $total = $mon - $get;
         $sql2 =<<< get
         update mem set money = ($mon-$get) where muse = '$account'
         get;
         mysqli_query($link,$sql2);
 
-        $sql3 =<<< time
-        insert into moneylist ()
-        time;
+        $sql3 = <<<get1
+        insert into moneylist(`memberId`,`move`,`usemoney`,`money`,`date`) values
+        ((select memberId from mem where muse = '$account'),'提款','-$get 元',$total,current_timestamp());       
+        get1;
+        mysqli_query($link,$sql3);
         header("Location: get.php");
+        //echo "<script>window.history.go(-1);</script>";
        } 
        else
        {

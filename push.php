@@ -21,8 +21,8 @@ if(isset($_POST["btnOK"]))
         get;
         mysqli_query($link,$sql2);
         $sql3 = <<<push
-        insert into moneylist(`memberId`,`change`,`date`) values
-        ((select memberId from mem where muse = '$account'),'+$get',current_timestamp());       
+        insert into moneylist(`memberId`,`move`,`usemoney`,`money`,`date`) values
+        ((select memberId from mem where muse = '$account'),'存款','+$get 元',$total,current_timestamp());       
         push;
         mysqli_query($link,$sql3);
         header("Location: push.php");
