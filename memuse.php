@@ -1,8 +1,6 @@
 <?php
 session_start();
-$show ="查詢餘額";
-if(isset($_POST["btninquired"]))
-{
+
   require("connect.php");
   $account = $_SESSION["userName"];
   $sql = <<< count
@@ -11,8 +9,8 @@ if(isset($_POST["btninquired"]))
     $result = mysqli_query($link,$sql);
     $nowmon = mysqli_fetch_assoc($result);
     $mon = $nowmon["money"];   
-}
-header("Cache-control: private");
+
+//header("Cache-control: private");
 if(isset($_GET["btnhome"]))
 {
   header("Location: index.php");
@@ -65,18 +63,36 @@ if(isset($_POST["btnedit"]))
       line-height:100px;
       background-color: #a9fcab;
     }
+    .bt
+    {
+      left:115px;
+      top:102px;
+      position: absolute;
+    }
+    .ts
+    {
+      position:absolute;
+      top:57px;
+      left:135px;
+    }
   </style>
 </head>
 <body>
+<script>
+    $(document).ready(function(){
+      $(".hide").click(function(){
+        $(".test").toggle();
+      })
+    });
+</script>
 <div id = "all">
-
 <div class="header">
   <h1><?= $_SESSION["name"]."的網銀帳戶"?></h1>
-   <h2>餘額顯示:<?php if(isset($_POST["btninquired"]))echo $mon?><h2>
+   <h2>餘額顯示:<h2><p class="test ts"><?= $mon?></p>
     <form method="post">
-      <input id="btninquired" name="btninquired" type="submit" class = "btn btn-outline-info btn-lg" value="<?=$show?>"></a>
       <a href = "inquired.php" class = "btn btn-outline-info btn-lg">查詢明細</a>
     </form>
+    <button class = "hide btn btn-outline-info btn-lg bt" type="button">餘額隱藏</button>
 <div>
 
 <div class = "form1" >

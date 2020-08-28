@@ -5,7 +5,7 @@ $acount = $_SESSION["userName"];
 
 $sql = <<< detail
   select `move`,`usemoney`,`date`,`money` from `moneylist` where `memberId`
-  in (select memberId from mem where `muse`='$acount');
+  in (select memberId from mem where `muse`='$acount') order by date DESC;
  detail;
 
 $result = mysqli_query($link, $sql);
