@@ -41,7 +41,8 @@ if(isset($_POST["btnreg"]))
 {
   header("location: add.php");
 }
-header("Cache-control: private");
+
+
 ?>
 <html>
 <head>
@@ -50,14 +51,7 @@ header("Cache-control: private");
     <title>會員登入</title>
     <h1>網銀</h1>
     <style>
-      .site
-      {
-        margin-top: -150px;
-        margin-left:-150px;
-        position: absolute;
-        left:50%;
-        top:50%;
-      }
+      
     </style>
 </head>
 <body>

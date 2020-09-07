@@ -50,9 +50,9 @@ $result = mysqli_query($link, $sql);
      <?php while ($row = mysqli_fetch_assoc($result)) {?>
       <tr>
         <td color=><?=$row["move"]?></td>
-        <td><font color="<?php if ($row["move"] == '存款') {?>
-          <?="green"?><?php } else {?>
-          <?="red"?><?php }?>">
+        <td><font color="<?php if ($row["move"] == '存款') {
+          echo "green";} elseif($row["move"] == '轉帳') {echo "yellow";}
+          else{echo "red";}?>">
           <?=$row["usemoney"]?></font></td>
         <td><?="$".$row["money"]."元"?></td>
         <td><?=$row["date"]?></td>

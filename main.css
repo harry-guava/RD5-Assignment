@@ -1,0 +1,52 @@
+.all
+    {
+      width:600px;
+      margin:0 auto;
+    }
+    .header
+    {
+      height:300px;
+      line-height:80px;
+      background-color: #c1eff7;   
+    }
+    .form1
+    { 
+      margin-top:50px;
+      height:200px;
+      line-height:105px;
+      background-color:#faffd1;
+    }
+    .form2
+    {
+      margin-top:0px;
+      height:200px;
+      line-height:125px;
+      background-color: #ffc9ff;
+    }
+    .form3
+    {
+      height:200px;
+      margin-top:0px auto;
+      line-height:100px;
+      background-color: #a9fcab;
+    }
+    .bt
+    {
+      left:115px;
+      top:102px;
+      position: absolute;
+    }
+    .ts
+    {
+      position:absolute;
+      top:57px;
+      left:135px;
+    }
+    .site
+      {
+        margin-top: -150px;
+        margin-left:-150px;
+        position: absolute;
+        left:50%;
+        top:50%;
+      }

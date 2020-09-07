@@ -28,7 +28,7 @@ if(isset($_POST["btnOK"]))
         ((select memberId from mem where muse = '$account'),'提款','-$get 元',$total,current_timestamp());       
         get1;
         mysqli_query($link,$sql3);
-        header("Location: get.php");
+        echo '<script>location.replace("memuse.php");</script>';
         //echo "<script>window.history.go(-1);</script>";
        } 
        else
@@ -43,7 +43,7 @@ if(isset($_POST["btnOK"]))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>提款</title>
     <script>
     if ( window.history.replaceState ) 
     {
@@ -52,7 +52,7 @@ if(isset($_POST["btnOK"]))
 
 </script>
 </head>
-<body>
+<body style="background-color:#faffd1">
     <form method="post">
     <h1>提款</h1>
     <table>
@@ -63,7 +63,7 @@ if(isset($_POST["btnOK"]))
 onafterpaste="this.value=this.value.replace(/\D/g,'')"type="text" name="txtget" id="txtget">
     <input type="submit" name="btnOK" id="btnOK" value="確定"/>
     </tr>
-    <h2>餘額:<?=$nowmon["money"]?></h2>
+    <h2>餘額:<?=$mon?></h2>
     </table>
     </form>
 </body>

@@ -8,8 +8,8 @@ session_start();
     count;
     $result = mysqli_query($link,$sql);
     $nowmon = mysqli_fetch_assoc($result);
-    $mon = $nowmon["money"];   
-
+    $mon = $nowmon["money"];
+    $_SESSION["money"] = $mon;
 //header("Cache-control: private");
 if(isset($_GET["btnhome"]))
 {
@@ -23,59 +23,14 @@ if(isset($_POST["btnedit"]))
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>網銀</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <style type="text/css">
-    .all
-    {
-      width:600px;
-      margin:0 auto;
-    }
-    .header
-    {
-      height:300px;
-      line-height:80px;
-      background-color: #c1eff7;   
-    }
-    .form1
-    { 
-      margin-top:50px;
-      height:200px;
-      line-height:105px;
-      background-color:#faffd1;
-    }
-    .form2
-    {
-      margin-top:0px;
-      height:200px;
-      line-height:125px;
-      background-color: #ffc9ff;
-    }
-    .form3
-    {
-      height:200px;
-      margin-top:0px auto;
-      line-height:100px;
-      background-color: #a9fcab;
-    }
-    .bt
-    {
-      left:115px;
-      top:102px;
-      position: absolute;
-    }
-    .ts
-    {
-      position:absolute;
-      top:57px;
-      left:135px;
-    }
-  </style>
+  <link rel=stylesheet href="main.css">
 </head>
 <body>
 <script>
@@ -97,9 +52,10 @@ if(isset($_POST["btnedit"]))
 
 <div class = "form1" >
   <form method="post">
-    <h3>存/提款</h3>
+    <h3>功能</h3>
     <a href = "push.php" class = "btn btn-outline-warning btn-lg">存款</a>
     <a href = "get.php" class = "btn btn-outline-warning btn-lg">提款</a>
+    <a href = "give.php" class = "btn btn-outline-warning btn-lg">轉帳</a>
   </form>
 </div>
 
