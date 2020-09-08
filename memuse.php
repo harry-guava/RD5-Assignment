@@ -17,6 +17,7 @@ if(isset($_GET["btnhome"]))
 }
 if(isset($_POST["btnedit"]))
 {
+  session_reset();
   header("Location: edit.php");
 }
 ?>
