@@ -1,47 +1,44 @@
 <?php
 session_start();
-if (isset($_POST["btnlogin"])) 
-{
+if (isset($_POST["btnlogin"])) {
     $userName = $_POST["txtuserName"];
     $passWord = $_POST["txtpassWord"];
-    if (trim(($userName && $passWord) != "")) 
-    {
+
+    if (trim(($userName && $passWord) != "")) {
         $_SESSION["userName"] = $userName;
         $_SESSION["passWord"] = $passWord;
         require("connect.php");
         $sql = <<< compare
-          select * from mem where muse = '$userName' and paswd = '$passWord'; 
+          select * from mem where `muse` = '$userName' and `paswd`= '$passWord';
         compare;
         $result = mysqli_query($link,$sql);
         //var_dump($result);
-        $rowname = mysqli_fetch_assoc($result);
+        $rowname= mysqli_fetch_assoc($result);
         $_SESSION["name"] = $rowname["username"];
-        $rownum =mysqli_num_rows($result);
-        echo $rownum;
-        if($rownum!=0)
-        {
-          header("location: memuse.php");
-          
+        $rownum = mysqli_num_rows($result);
+        //echo $rownum;
+            if($rownum!=0)
+            {
+              header("location: memuse.php");
+
+            }
+            else
+            {
+              echo '<script language="javascript">';
+              echo 'alert("請輸入正確的帳號或密碼")';
+              echo '</script>';
+            }
         }
         else
         {
           echo '<script language="javascript">';
-          echo 'alert("請輸入正確的帳號或密碼")';
+          echo 'alert("欄位請勿空白")';
           echo '</script>';
-        }
-    }
-    else
-    {
-      echo '<script language="javascript">';
-      echo 'alert("欄位請勿空白")';
-      echo '</script>';
     }
 }
-if(isset($_POST["btnreg"]))
-{
-  header("location: add.php");
+if (isset($_POST["btnreg"])) {
+    header("location: add.php");
 }
-
 
 ?>
 <html>
@@ -51,13 +48,13 @@ if(isset($_POST["btnreg"]))
     <title>會員登入</title>
     <h1>網銀</h1>
     <style>
-      
+
     </style>
 </head>
 <body>
   <!--避免F5又再送一次表單-->
 <script>
-    if ( window.history.replaceState ) 
+    if ( window.history.replaceState )
     {
         window.history.replaceState( null, null, window.location.href );
     }
@@ -77,7 +74,7 @@ if(isset($_POST["btnreg"]))
         <td valign="baseline">
         <input type="text" name="txtuserName" id="txtuserName" /></td>
       </tr>
-        <tr>
+          <tr>
           <td width="80" align="center" valign="baseline">密碼</td>
           <td valign="baseline">
           <input type="password" name="txtpassWord" id="txtpassWord" /></td>

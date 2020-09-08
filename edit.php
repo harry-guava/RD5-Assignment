@@ -33,13 +33,17 @@ if(isset($_POST["addsub"]))
       echo '<script>alert("欄位請勿空白");history.back();</script>';
     }
 }
+if(isset($_POST["cancel"]))
+{
+  echo '<script>location.replace("memuse.php")</script>';
+}
 ?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>修改資料</title>
     <script>
     if ( window.history.replaceState ) 
     {
