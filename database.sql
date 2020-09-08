@@ -1,6 +1,6 @@
-create database member default character set utf8;
+create database bank default character set utf8;
 
-use member;
+use bank;
 
 create table mem
 (
