@@ -15,6 +15,7 @@ if (isset($_POST["btnlogin"])) {
         //var_dump($result);
         $rowname= mysqli_fetch_assoc($result);
         $_SESSION["name"] = $rowname["username"];
+        $_SESSION["memberId"] = $rowname["memberId"];
         $rownum = mysqli_num_rows($result);
         //echo $rownum;
             if($rownum!=0)
